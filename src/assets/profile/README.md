@@ -1,1 +1,1 @@
-Place your approved profile photo here as profile.jpg. Both portrait components update automatically after restarting Vite or rebuilding.
+The supplied professional profile.jpg is used only in the hero. Replace this file and rebuild to update the photo. It is not used in About, project cards, thumbnails or Open Graph metadata.

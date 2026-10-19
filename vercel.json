@@ -1,1 +1,12 @@
-{"rewrites":[{"source":"/work/india-trade-overseas","destination":"/work/india-trade-overseas/index.html"},{"source":"/((?!assets/|resume/|favicon.svg|robots.txt|sitemap.xml).*)","destination":"/index.html"}]}
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "headers": [
+    { "source": "/(.*)", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }, { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }] },
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+  ],
+  "rewrites": [
+    { "source": "/work/india-trade-overseas", "destination": "/work/india-trade-overseas/index.html" },
+    { "source": "/((?!assets/|resume/|favicon.svg|robots.txt|sitemap.xml).*)", "destination": "/index.html" }
+  ]
+}

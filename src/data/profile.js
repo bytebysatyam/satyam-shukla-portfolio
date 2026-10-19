@@ -5,7 +5,13 @@ export const profile = {
   email: 'shuklasatyam48890@gmail.com',
   github: 'https://github.com/bytebysatyam',
   linkedin: 'https://www.linkedin.com/in/satyamshukla10/',
-  phone: '', // Optional international number, e.g. + followed by country code and number.
+  phones: [
+    { number: '+919670821668', display: '+91 96708 21668' },
+    { number: '+918957879657', display: '+91 89578 79657' },
+  ], // Each configured number supports both calls and WhatsApp.
+  whatsappMessage: 'Hi Satyam, I came across your portfolio and would like to discuss an opportunity/project.',
+  website: 'https://satyam-shukla-portfolio-jet.vercel.app',
+  repository: 'https://github.com/bytebysatyam/satyam-shukla-portfolio',
   photo: '/src/assets/profile/profile.jpg',
   resume: '/resume/Satyam-Shukla-Resume.pdf',
   availability: 'Open to Full-Time Opportunities & Freelance Projects',
@@ -16,6 +22,27 @@ export const profile = {
     'My goal is to build reliable, maintainable software while continuously improving my engineering, product and customer-facing skills.',
     'I am open to both full-time software opportunities and selected freelance projects.',
   ],
+};
+
+export function buildContactLinks(config) {
+  return {
+    email: config.email ? `mailto:${config.email}` : '',
+    phones: (config.phones || []).filter(phone => phone?.number).map(phone => ({
+      number: phone.number,
+      display: phone.display || phone.number,
+      call: `tel:${phone.number.replace(/[^+\d]/g, '')}`,
+      whatsapp: `https://wa.me/${phone.number.replace(/\D/g, '')}?text=${encodeURIComponent(config.whatsappMessage || '')}`,
+    })),
+  };
+}
+
+export const contactLinks = buildContactLinks(profile);
+
+export const siteMetadata = {
+  title: `${profile.name} | ${profile.title} | React, Node.js & Web Applications`,
+  description: 'Full Stack Developer experienced in React, Node.js, APIs, databases, CRM workflows, production debugging, deployment and business-focused web applications.',
+  caseTitle: `India Trade Overseas Case Study | ${profile.name}`,
+  caseDescription: 'Full stack contributions to a B2B trade platform: React interfaces, Node.js APIs, MongoDB data workflows, lead management, integrations and production debugging.',
 };
 
 export const credentials = [

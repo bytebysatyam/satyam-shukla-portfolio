@@ -6,6 +6,7 @@ test-results/
 .npm-cache/
 .browser-profile/
 VERIFICATION.md
+.asset-originals/
 
 # Logs, coverage and build/tool caches
 *.log

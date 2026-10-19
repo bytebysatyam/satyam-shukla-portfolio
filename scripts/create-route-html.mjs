@@ -1,8 +1,9 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { siteMetadata } from '../src/data/profile.js';
 
 // Give direct case-study requests the right metadata before JavaScript runs.
-const title = 'India Trade Overseas Case Study | Satyam Shukla';
-const description = 'Full stack contributions to a B2B trade platform: React interfaces, Node.js APIs, MongoDB data workflows, lead management, integrations and production debugging.';
+const title = siteMetadata.caseTitle;
+const description = siteMetadata.caseDescription;
 let html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
 html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
   .replace(/(<meta (?:name="description"|property="og:description"|name="twitter:description") content=")[^"]*("\s*\/?>)/g, `$1${description}$2`)

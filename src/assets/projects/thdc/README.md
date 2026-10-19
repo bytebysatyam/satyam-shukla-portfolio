@@ -1,1 +1,1 @@
-Add an approved project UI image as ui-placeholder.jpg, or change screenshot in src/data/projects.js.
+ui-placeholder.jpg is a supplied generated UI reconstruction, optimized as JPEG. The portfolio labels it illustrative and explains that displayed figures are not actual project metrics. It is not a historical screenshot. Update visualAlt, visualLabel and visualNote in src/data/projects.js when replacing it.

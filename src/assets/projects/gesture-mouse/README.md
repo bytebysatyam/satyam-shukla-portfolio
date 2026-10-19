@@ -1,1 +1,1 @@
-Add your demo image as demo-placeholder.jpg, or change screenshot in src/data/projects.js.
+demo-placeholder.jpg is a supplied generated project demo visual, optimized as JPEG. It is labeled generated and is not presented as a captured live demonstration. Update visualAlt, visualLabel and visualNote in src/data/projects.js when replacing it.

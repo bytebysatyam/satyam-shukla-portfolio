@@ -1,11 +1,3 @@
-Add public or approved images with these exact names:
+ITO links to the official company website through the first project's live field in src/data/projects.js. No screenshots are currently present or required. The homepage uses a labeled illustrative workflow.
 
-- home-placeholder.jpg
-- product-placeholder.jpg
-- lead-placeholder.jpg
-- crm-placeholder.jpg
-- quotation-placeholder.jpg
-- payment-placeholder.jpg
-- mobile-placeholder.jpg
-
-These are reserved paths, not fake JPEG files. Until real images are supplied, the site renders designed placeholders. Alternatively edit paths in src/data/projects.js. Never include private CRM data, credentials, customer records or internal-only screens.
+If approved screenshots are later supplied, use home-placeholder.jpg, product-placeholder.jpg, lead-placeholder.jpg, crm-placeholder.jpg, quotation-placeholder.jpg, payment-placeholder.jpg or mobile-placeholder.jpg. Only files that actually exist render in the case study. Never include private company/customer data. ITO source code remains proprietary and no public repository link is shown.

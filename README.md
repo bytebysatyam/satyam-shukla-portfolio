@@ -1,110 +1,121 @@
-# Satyam Shukla — Full Stack Developer Portfolio
+# Satyam Shukla — Full Stack Developer
 
-A professional portfolio for full-time software opportunities and freelance business software enquiries. It presents supplied experience, training and projects without fabricated metrics, dates, repositories or testimonials. Designed to look complete before photos, screenshots and the resume are supplied.
+A professional portfolio for full-time software applications, recruiter/startup outreach and freelance business software enquiries. It presents supplied development experience and projects without invented dates, ownership claims, testimonials or metrics.
 
-## Stack and setup
+Live portfolio: https://satyam-shukla-portfolio-jet.vercel.app/
 
-React 19, Vite, JavaScript, React Router, Lucide React and modern CSS. Node.js 20.19+ or Node.js 22.12+ recommended. Google Fonts are optional network-loaded enhancements; system sans-serif fallbacks work offline.
+Repository: https://github.com/bytebysatyam/satyam-shukla-portfolio
+
+## Setup
+
+React 19, Vite, JavaScript, React Router, Lucide React and modern CSS. Use Node.js 22.12+ (Node.js 22.18 was used for verification). System fonts avoid external font downloads. No backend or database is needed to serve this portfolio.
 
 ```bash
-cd satyam-portfolio
-npm install
+git clone https://github.com/bytebysatyam/satyam-shukla-portfolio.git
+cd satyam-shukla-portfolio
+npm ci
 npm run dev
 ```
 
-Open the Local URL printed by Vite (normally `http://127.0.0.1:5173`).
+For the existing local workspace, start in `D:\Portfolio\satyam-portfolio`. `npm install` is appropriate when dependency inputs change; `npm ci` reproduces the committed lockfile.
 
 ```bash
-npm run test
+npm test
 npm run build
 npm run preview
 ```
 
-Build output is `dist/`. Preview normally uses `http://127.0.0.1:4173`.
+Development normally uses http://127.0.0.1:5173/; production preview normally uses http://127.0.0.1:4173/. The build output is `dist/`. No lint command is configured.
 
-## Routes and sections
+## Routes and content
 
-- `/`: hero, professional strengths, selected work, experience, credentials, services, work process, skills, team strengths, about and contact.
-- `/work/india-trade-overseas`: complete ITO contribution case study with frontend/backend work, data handling, integrations, production work, engineering learnings and screenshot gallery.
-- Unknown paths: helpful 404 page.
+- `/`: hero, professional strengths, selected work, experience/credentials, services, process, skills, team strengths, about and contact.
+- `/work/india-trade-overseas`: contribution case study with frontend/backend work, data handling, integrations, production debugging, engineering learnings and the live company website.
+- Unknown paths: professional 404 view with `noindex` metadata and a route home. On SPA hosts, unknown paths may have an HTTP 200 fallback while the client shows the 404 view.
 
-The mobile navigation supports keyboard operation and Escape. Resume dialogs use native modal focus handling. Focus states, a skip link and reduced-motion support are included.
+The mobile menu supports Escape, outside-click dismissal, focus containment, section navigation and body-scroll locking. Resume dialogs use native modal focus handling, explicit Escape dismissal and focus return. The profile photo appears only in the hero; About uses an engineering approach panel.
 
-## Editing content
+## Central configuration
 
 | Content | File |
 | --- | --- |
-| Name, email, LinkedIn, GitHub, phone, availability, bio, profile photo, resume | `src/data/profile.js` |
-| Experience, editable dates, responsibilities | `src/data/experience.js` |
-| Projects, case study copy, image paths, repository/live links | `src/data/projects.js` |
+| Identity, positioning, phone, WhatsApp, email, social links, repository, website, resume, bio, credentials and metadata | `src/data/profile.js` |
+| Experience, dates and responsibilities | `src/data/experience.js` |
+| Projects, case study, contribution details, image labels and live/repository links | `src/data/projects.js` |
 | Services | `src/data/services.js` |
 | Skills | `src/data/skills.js` |
-| Visual design and responsive rules | `src/styles/globals.css` |
-| Homepage hero | `src/components/Hero.jsx` |
+| Design and all responsive rules | `src/styles/globals.css` |
 
-Experience dates intentionally remain empty until you provide them. They are hidden when empty. The optional phone field is empty; call/WhatsApp links appear only when a number is configured. Use an international number with country code. No location or years-of-experience claim is assumed.
+`profile.phones` contains both supplied numbers: +91 96708 21668 and +91 89578 79657. Each entry generates both a Call Me action and a WhatsApp action. Keep numbers in international format; `display` controls presentation only. Remove an entry to hide that number, or use an empty array to hide all call/WhatsApp actions. Dialing and WhatsApp URLs are normalized from this single configuration. All public contact details intentionally appear in the portfolio.
 
-Project `repo` and `live` links remain hidden when empty. Add only real, public URLs. Supporting project features are in expandable implementation details. A generic fourth project is disabled in data; add verified details before setting `enabled: true`.
+Experience dates remain empty until verified. Optional certificates are hidden until named; certificate links render only when a valid path is supplied. No certificate IDs or additional credentials are assumed.
 
-To add a supporting project, copy the THDC object in `projects.js`, use a unique `id`, supply actual content, tags, screenshot path and optional links. The homepage renders enabled entries automatically. The dedicated ITO route uses the first project and its `sections`/`screenshots`; preserve that entry first unless also updating the route component.
+## Images and authenticity
 
-Credentials reflect the supplied experience and training. Certificate links are optional. Configure verified certificates with `name`, `detail` and `file` in `profile.js`; the blank `additionalCertificate` object is an editable, hidden placeholder.
+| Asset | Location | How it is presented |
+| --- | --- | --- |
+| Profile photo | `src/assets/profile/profile.jpg` | Hero only; high-priority loading, responsive crop; the original face/file is not edited |
+| THDC visual | `src/assets/projects/thdc/ui-placeholder.jpg` | “Illustrative UI reconstruction,” with a note that generated figures are not project metrics |
+| Gesture Mouse visual | `src/assets/projects/gesture-mouse/demo-placeholder.jpg` | “Project demo visual,” explicitly labeled generated rather than a captured live demonstration |
+| Optional ITO screenshots | `src/assets/projects/ito/` | Only approved, present files render |
 
-## Replace the asset placeholders
+Both generated visuals are actual optimized JPEG files (roughly 215 KB and 175 KB) at 1280px width. They load lazily with a consistent 16:9 frame and descriptive alt text; the full visual is contained without stretching. Any apparent “live demo” wording or numbers inside the supplied generated images are illustrative, as their captions explain.
 
-Add real files to these exact paths inside this project. The `.jpg` files intentionally do not exist yet; no fake JPEGs or human portraits are generated.
+ITO currently has no screenshots in the repository. Its **Visit Live Website** link goes to https://www.indiatradeoverseas.com/. An illustrative workflow fills the flagship card; no missing screenshot gallery is shown. The source code is proprietary, so ITO never exposes a GitHub/source action.
 
-| Asset | Exact path |
-| --- | --- |
-| Profile photo (used in hero and about) | `src/assets/profile/profile.jpg` |
-| ITO homepage | `src/assets/projects/ito/home-placeholder.jpg` |
-| ITO product page | `src/assets/projects/ito/product-placeholder.jpg` |
-| ITO enquiry form | `src/assets/projects/ito/lead-placeholder.jpg` |
-| ITO CRM / dashboard | `src/assets/projects/ito/crm-placeholder.jpg` |
-| ITO quotation / lead workflow | `src/assets/projects/ito/quotation-placeholder.jpg` |
-| ITO payment journey | `src/assets/projects/ito/payment-placeholder.jpg` |
-| ITO mobile view | `src/assets/projects/ito/mobile-placeholder.jpg` |
-| THDC project UI | `src/assets/projects/thdc/ui-placeholder.jpg` |
-| Gesture Mouse demo | `src/assets/projects/gesture-mouse/demo-placeholder.jpg` |
+If you later add approved ITO screenshots, use `home-placeholder.jpg`, `product-placeholder.jpg`, `lead-placeholder.jpg`, `crm-placeholder.jpg`, `quotation-placeholder.jpg`, `payment-placeholder.jpg` or `mobile-placeholder.jpg`, or edit the paths in `projects.js`. Only present images appear. Remove all private/customer data before including a real screenshot. Images are not required to use the live website link.
 
-You can instead change paths in the data files. Supported source assets: JPG, JPEG, PNG, WebP, AVIF and SVG. Vite’s asset glob detects files, returns production-safe URLs and excludes missing files. Restart development/rebuild after adding assets. Screenshots load lazily, and unavailable or failed images fall back to designed placeholders. The ITO homepage preview starts as a clearly labeled illustrative workflow diagram, not a fabricated screenshot. Optimize images before adding them; use a sensible resolution, ideally under 250 KB each. Only use public or approved project visuals with private information removed.
+Source image paths resolve through Vite’s asset glob. Supported source formats are JPG, JPEG, PNG, WebP, AVIF and SVG. Missing paths or load failures use a designed fallback, never a broken-image icon. Restart development/rebuild when adding files.
 
-## Resume PDF — exact path
+The optional Windows helper `scripts/optimize-project-images.ps1` re-encodes only the two supplied project illustrations. Original files are preserved under ignored `.asset-originals/`; the profile photo is untouched. It always reads from the saved originals, so repeated runs do not repeatedly compress an already compressed image.
 
-Place your actual PDF at:
+## Resume
+
+The actual supplied PDF is included at:
 
 ```text
-D:\Portfolio\satyam-portfolio\public\resume\Satyam-Shukla-Resume.pdf
+public/resume/Satyam-Shukla-Resume.pdf
 ```
 
-Its public URL is `/resume/Satyam-Shukla-Resume.pdf`. No fake PDF is created. All View Resume buttons open an accessible modal which checks the response’s PDF signature, so an SPA fallback page cannot be mistaken for a resume. When absent, the modal offers an email request. When present, it offers Open PDF and Download. Replace the file and rebuild to publish an updated copy.
+Local absolute path: `D:\Portfolio\satyam-portfolio\public\resume\Satyam-Shukla-Resume.pdf`.
 
-## Contact form
+Every View Resume/Download Resume trigger opens an accessible dialog and checks the response's `%PDF-` signature, preventing an SPA fallback document from being mistaken for a PDF. Valid files expose View Resume in a new tab and a Download Resume link with the download attribute. If the file is missing, corrupt or unavailable, the dialog hides those links and offers an email request. Actual download handling depends on the visitor's browser/PDF settings. Replace the PDF and rebuild to update it.
 
-Required fields have client-side validation. Freelance selection reveals an optional project type. Submitting **prepares** an encoded mailto draft and reveals an **Open email draft** link. The visitor must open their configured email app, review the draft and send it themselves. The website never claims delivery or stores submissions. A direct email link and copy button remain available if a mail app is unavailable. The message is limited to 2,000 characters for reasonable mailto lengths; client support for very long drafts can vary.
+## Contact
 
-`src/lib/contact.js` isolates validation and draft construction for replacement with a real backend/service later. If connecting one, keep credentials on a server and show delivery success only after a successful response; add spam controls and appropriate privacy wording.
+Email Me, Call Me, WhatsApp, LinkedIn and GitHub links are generated from the profile configuration. WhatsApp includes a professional prefilled message; the site does not send it automatically. Hiring and freelance paths select the relevant reason in the contact form. Copy-email feedback reflects whether the clipboard call succeeded.
 
-## SEO and deployment
+The form validates name, email, a recognized reason and a useful message. Freelance selection reveals an optional project-type field. Submitting prepares an encoded **Open email draft** link; the visitor must open an email app, review it and send it themselves. No submission is stored or sent by this website, and no delivery-success message is shown. Direct contact links remain available if no email app is configured.
 
-Set your real public origin before deployment:
+The message limit is 2,000 characters; mailto support for long drafts varies by client. `src/lib/contact.js` isolates validation/draft construction for later backend integration. Keep any future service credentials server-side and show delivery success only after a successful service response.
 
-1. Copy `.env.example` to `.env.local`.
-2. Set `VITE_SITE_URL=https://your-real-domain` (origin only).
-3. Run `npm run build`.
+## SEO and Vercel deployment
 
-The build generates `robots.txt` and `sitemap.xml`. The sitemap is deliberately empty until a real origin is configured; no fabricated domain is used. Canonical and Open Graph URLs become available when configured. Titles/descriptions, Open Graph and Twitter summary metadata, favicon and factual Person JSON-LD are included. Client navigation updates route metadata. An actual social preview image can be added later if desired.
+`profile.website` is configured with the owner's supplied Vercel origin. Optional `VITE_SITE_URL` in `.env.local` or the hosting environment overrides it; `.env.example` documents that override without credentials. Do not set it to the ITO company domain. Change the central website value/environment override if the portfolio's deployment origin changes.
 
-Deploy `dist/` to any static host with SPA support. Configure the build command as `npm run build` and output directory as `dist`. A Netlify/Cloudflare Pages style `_redirects` file is supplied for client routes. For Vercel, an included `vercel.json` handles the same fallback. For Nginx, use `try_files $uri $uri/ /index.html;`. Other hosts need an equivalent rewrite so direct case-study links and reloads work. Deploy at the domain root, or adapt Vite `base` and router basename for subdirectory hosting.
+The build generates canonical URLs, Open Graph/Twitter summary metadata, `robots.txt`, a two-route `sitemap.xml` and factual Person JSON-LD with the supplied name, title, email, telephone, website and social URLs. A dedicated case-study HTML entry provides route-specific titles/social metadata before JavaScript runs. Client navigation updates metadata; the 404 view is `noindex`. The profile photo is never used for Open Graph. No rating, award, invented location or experience duration is added.
 
-No hosting account is created and nothing is publicly deployed as part of this local project build.
+Vercel settings:
 
-## Verification
+- Framework preset: Vite
+- Root directory: repository root
+- Build command: `npm run build`
+- Output directory: `dist`
 
-`npm test` covers required field validation, email encoding, line breaks and conditional project-type inclusion. `npm run build` verifies imports and generates deployable assets. The build also writes a dedicated case-study HTML entry so direct links include its title and social metadata before JavaScript runs.
+`vercel.json` supplies the nested case-study rewrite, SPA fallback and basic response headers. Public asset/resume paths are excluded from the SPA rewrite so a missing PDF does not become the homepage. Hashed build assets use immutable caching. Test a direct case-study URL and reload after deployment; local preview verifies the generated HTML, but the hosting provider's configuration is only fully verified on the deployed site.
 
-For optional automated browser QA, start `npm run dev`, then run `npm run test:browser` in another terminal. This uses your existing Windows Chrome installation in headless mode with a separate ignored browser profile; it does not install a browser. Override `CHROME_PATH` for another Chrome/Chromium path and `QA_ORIGIN` for another local server URL. The script checks both routes at 360, 390, 768, 1024 and 1440 widths, mobile navigation, resume fallback, form validation/draft generation, social links, metadata, placeholders, 404 behavior and runtime exceptions. It writes screenshots and a report to ignored `test-results/`. It does not send email. These checks expect the initial missing-resume state; adapt that assertion once your real PDF is added.
+For Netlify/Cloudflare Pages, `public/_redirects` supplies the SPA fallback. For Nginx, use `try_files $uri $uri/ /index.html;`. Deploy at the origin root; subdirectory hosting requires corresponding Vite/router configuration. Pushing to GitHub may trigger an existing Vercel integration, but a successful Git push alone does not prove deployment success.
 
-No performance score is claimed without an actual Lighthouse run.
+## Adding projects
 
-Before launch, provide the real resume, approved photos/screenshots, experience dates and deployment domain. Public repository links, certificate files and phone number are optional. Review all supplied contribution descriptions for accuracy and permission to disclose.
+Copy a supporting project object in `src/data/projects.js`, assign a unique ID and add only real details. Configure `screenshot`, `visualAlt`, `visualLabel` and `visualNote` to distinguish actual screenshots from illustrations. Optional `details` supports problem, solution, role and learnings inside the implementation disclosure; `features` and `tags` support recruiter scanning. Repository and live actions stay hidden for empty URLs. Never expose a proprietary repository. Keep ITO first unless updating its dedicated case-study component. The generic future project remains disabled until actual content is supplied.
+
+## Verification and limitations
+
+`npm test` runs contact validation/draft unit tests. `npm run build` checks imports, emits production assets and writes route HTML. `npm run test:browser` is an optional, dependency-free headless Chrome audit of the local production preview. It covers 320, 360, 375, 390, 430, 768, 1024, 1280, 1440 and 1600px; menu keyboard/outside-click behavior, one profile photo, image loading and error fallbacks, real/missing resume responses, form drafts, contact links, accessible control names, canonical tags, case study, 404 and no-JavaScript contact fallback. It does not send email, make calls or open WhatsApp conversations.
+
+Start `npm run preview`, then run `npm run test:browser` in another terminal. Set `QA_ORIGIN` to use another server; set `CHROME_PATH` to use another installed Chrome/Chromium binary. Each run uses a separate ignored browser profile and writes screenshots plus a report to ignored `test-results/`. The report is written only if the whole audit passes.
+
+The current final-pass build and unit tests passed. The requested Chrome audit was declined, so the final visual/interactive browser checks remain unverified. No Lighthouse score or exhaustive accessibility certification is claimed. External GitHub/LinkedIn/deployed-site availability could not be fully verified from this environment. The supplied official ITO website was accessible during the external link check.
+
+Remaining owner input is optional: verified experience dates, public supporting-project repositories, certificates and approved ITO screenshots. Review your resume/content as it changes and confirm the deployed Vercel build after pushing. No secrets or local-only verification/cache/browser files should be committed.
