@@ -1,0 +1,47 @@
+export const projects = [
+  {
+    id: 'india-trade-overseas', name: 'India Trade Overseas', category: 'Production experience', title: 'B2B Trade Platform, Lead Workflows & Business Systems', role: 'Full Stack Developer',
+    summary: 'Worked on a production-oriented B2B platform supporting product discovery, buyer enquiries, lead management, quotation workflows, payments, CRM-related processes, analytics, SEO improvements and operational web workflows.',
+    tags: ['React', 'Node.js', 'MongoDB', 'REST APIs'],
+    tech: ['React', 'JavaScript', 'Node.js', 'Express', 'MongoDB', 'REST APIs', 'Git', 'Deployment', 'SEO', 'Analytics', 'CRM workflows', 'Payment workflows'],
+    repo: '', live: '',
+    screenshots: [
+      { label: 'Platform homepage', path: '/src/assets/projects/ito/home-placeholder.jpg' },
+      { label: 'Product discovery', path: '/src/assets/projects/ito/product-placeholder.jpg' },
+      { label: 'Buyer enquiry form', path: '/src/assets/projects/ito/lead-placeholder.jpg' },
+      { label: 'CRM / dashboard', path: '/src/assets/projects/ito/crm-placeholder.jpg' },
+      { label: 'Quotation / lead workflow', path: '/src/assets/projects/ito/quotation-placeholder.jpg' },
+      { label: 'Payment journey', path: '/src/assets/projects/ito/payment-placeholder.jpg' },
+      { label: 'Mobile experience', path: '/src/assets/projects/ito/mobile-placeholder.jpg' },
+    ],
+    sections: [
+      { title: 'Overview', text: 'A business-facing B2B platform with interconnected product, enquiry, lead and payment journeys. This case study describes my contributions as a Full Stack Developer; it does not claim ownership of the entire platform.' },
+      { title: 'Business Context', text: 'Buyers need to discover relevant products, communicate requirements and move through clear commercial workflows. Business teams need structured information to handle enquiries, quotations and follow-up.' },
+      { title: 'My Role', text: 'Contributed across frontend implementation, backend/API integration, business workflows, debugging and deployment. Work included code review and refining production-facing journeys.' },
+      { title: 'Problem / Requirement', text: 'Connect buyer-facing interfaces with structured lead handling and operational systems, while keeping product pages, forms and payment journeys usable across devices.' },
+      { title: 'What I Worked On', items: ['Buyer enquiry flows and structured requirement forms.', 'Quotation workflows and CRM-related lead management.', 'Payment journeys and business conversion paths.', 'Analytics-related implementation and SEO improvements.'] },
+      { title: 'Frontend Contribution', items: ['Developed React components and responsive UI.', 'Implemented business and product pages.', 'Worked on form flows, user interactions and frontend/backend API integration.'] },
+      { title: 'Backend & API Contribution', items: ['Worked with Node.js / Express APIs and backend workflow integration.', 'Contributed to data persistence and lead processing.', 'Debugged APIs and investigated integration issues.'] },
+      { title: 'Data & Workflow Handling', text: 'Worked with MongoDB-based business data workflows, including lead/contact persistence where relevant. Connected structured enquiry inputs to backend processing and CRM-related operational flows.' },
+      { title: 'Integrations', items: ['Frontend/backend API connections.', 'CRM-related workflows and payment integration.', 'Analytics-related implementation across business journeys.'] },
+      { title: 'Debugging & Production Work', text: 'Used Git-based development and code review, investigated frontend/backend issues, contributed to deployment and production issue resolution, and refined workflows as requirements became clearer.' },
+      { title: 'Key Engineering Learnings', items: ['Consider the complete journey from user input to stored data and operational follow-up.', 'Investigate problems across interface, API and data boundaries.', 'Keep implementation decisions grounded in business requirements and maintainability.'] },
+    ],
+  },
+  {
+    id: 'thdc', name: 'THDC India Limited', category: 'Training project', title: 'Complaint & Leave Management System',
+    summary: 'A database-backed web application developed during IT Department training, connecting employee requests with admin responses and approvals.',
+    tags: ['ASP.NET Core MVC', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'IIS'], repo: '', live: '',
+    screenshot: '/src/assets/projects/thdc/ui-placeholder.jpg',
+    features: ['Login/register, session handling and role-based functionality', 'Complaint submission and admin response', 'Leave application, approval and dashboard', 'MySQL-backed CRUD and internal workflows', 'Admin/user separation and IIS deployment experience'],
+  },
+  {
+    id: 'gesture-mouse', name: 'Hand Gesture Virtual Mouse', category: 'Computer vision project', title: 'A different way to interact',
+    summary: 'A computer-vision project enabling cursor and system interactions through real-time hand gestures.',
+    tags: ['Python', 'OpenCV', 'MediaPipe', 'NumPy', 'PyAutoGUI'], repo: '', live: '',
+    screenshot: '/src/assets/projects/gesture-mouse/demo-placeholder.jpg',
+    features: ['Real-time hand tracking and gesture recognition', 'Cursor movement and gesture-triggered interaction', 'Computer vision processing and library integration', 'Debugging and dependency/version troubleshooting'],
+  },
+  // Editable future project: add only verified details, then set enabled to true.
+  { id: 'next-project', enabled: false, name: 'Full Stack Web Application', category: 'Project placeholder', summary: 'Details will be added when the project is ready to share.', tags: [], repo: '', live: '' },
+];

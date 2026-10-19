@@ -1,0 +1,1 @@
+{"rewrites":[{"source":"/work/india-trade-overseas","destination":"/work/india-trade-overseas/index.html"},{"source":"/((?!assets/|resume/|favicon.svg|robots.txt|sitemap.xml).*)","destination":"/index.html"}]}
